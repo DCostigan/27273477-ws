@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <ul>
+    <% for(var userid in users) { %>
+      <% if(users[userid].admin) { %>
+        <li><%= users[userid].username %></li>
+      <% } %>
+    <% } %>
+    </ul>
+
+    <h1><%= title2 %></h1>
+
+    <div><%= message %></div><br>
+
+
+    <form method="post" action="/user/admin/newuser">
+      User Name: <input type="text" name="username"> <br>
+      Password:  <input type="text" name="password"> <br>
+      Admin?: <input type="radio" name="admin" value='1'><br>
+      <button>Create</button>
+    </form>
+  </body>
+</html>
